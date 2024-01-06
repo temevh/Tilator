@@ -7,6 +7,7 @@ const sliderStyle = {
   width: 300,
 };
 
+// Tila, cope, sekavuus, kenergy, turvotus
 function App() {
   const tilaMarks = [
     { value: 0, label: "0" },
@@ -21,6 +22,27 @@ function App() {
 
   const handleChange = (event, newValue) => {
     setSliderValue(newValue);
+  };
+
+  const handleSubmit = async () => {
+    try {
+      // Make an HTTP POST request to your backend
+      const response = await fetch("http://localhost:8000/api/post-stat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ value: sliderValue }),
+      });
+
+      if (response.ok) {
+        console.log("Stat submitted successfully");
+      } else {
+        console.error("Failed to submit stat");
+      }
+    } catch (error) {
+      console.error("Error submitting stat:", error);
+    }
   };
 
   return (
@@ -45,7 +67,12 @@ function App() {
       />
       <p style={{ color: "white" }}>{sliderValue}</p>
 
-      <Button variant="contained" color="primary" style={{ marginTop: 50 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        style={{ marginTop: 50 }}
+        onClick={handleSubmit}
+      >
         Submit
       </Button>
     </div>
