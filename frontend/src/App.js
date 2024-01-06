@@ -24,24 +24,24 @@ function App() {
     setSliderValue(newValue);
   };
 
-  const handleSubmit = async () => {
+  const sendDataToBackend = async () => {
+    console.log("CLICKED");
     try {
-      // Make an HTTP POST request to your backend
-      const response = await fetch("http://localhost:8000/api/post-stat", {
+      const response = await fetch("http://localhost:5000/api/data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ value: sliderValue }),
+        body: JSON.stringify({ value: sliderValue }), // Wrap sliderValue in an object
       });
 
-      if (response.ok) {
-        console.log("Stat submitted successfully");
-      } else {
-        console.error("Failed to submit stat");
+      if (!response.ok) {
+        throw new Error("Failed to send data to the server");
       }
+
+      console.log("Data sent successfully");
     } catch (error) {
-      console.error("Error submitting stat:", error);
+      console.error("Error:", error.message);
     }
   };
 
@@ -71,7 +71,7 @@ function App() {
         variant="contained"
         color="primary"
         style={{ marginTop: 50 }}
-        onClick={handleSubmit}
+        onClick={sendDataToBackend}
       >
         Submit
       </Button>
