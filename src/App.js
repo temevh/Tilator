@@ -1,11 +1,9 @@
-import "./App.css";
-
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Tilator</p>
-      </header>
+      <div className="bg-gray-500">
+        <p>Hello world</p>
+      </div>
     </div>
   );
 }
