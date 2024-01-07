@@ -1,14 +1,18 @@
 const sendDataToBackend = async (props) => {
-  const sliderValue = props.stats;
+  const statsToSend = props.stats;
 
   console.log("CLICKED");
+  console.log("Tila ", statsToSend.tila);
+  console.log("Cope ", statsToSend.cope);
   try {
     const response = await fetch("http://localhost:5000/api/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ value: sliderValue }),
+      body: JSON.stringify({
+        value: { cope: statsToSend.cope, tila: statsToSend.tila },
+      }),
     });
 
     if (!response.ok) {
