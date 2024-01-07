@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SliderTemplate from "./SliderTemplate";
 
-const SliderCope = ({ onSliderChange }) => {
-  const copeMarks = [
+const SliderSekavuus = ({ onSliderChange }) => {
+  const SekavuusMarks = [
     { value: 0, label: "0" },
     { value: 2, label: "2" },
     { value: 4, label: "4" },
@@ -11,25 +11,25 @@ const SliderCope = ({ onSliderChange }) => {
     { value: 10, label: "10" },
   ];
 
-  const [copeValue, setCopeValue] = useState(5);
+  const [SekavuusValue, setSekavuusValue] = useState(5);
 
-  const handleCopeChange = (event, newValue) => {
-    setCopeValue(newValue);
+  const handleSekavuusChange = (event, newValue) => {
+    setSekavuusValue(newValue);
     onSliderChange(newValue);
   };
 
   return (
     <>
       <SliderTemplate
-        value={copeValue}
-        onChange={handleCopeChange}
-        marks={copeMarks}
-        stat={"Cope: "}
+        value={SekavuusValue}
+        onChange={handleSekavuusChange}
+        marks={SekavuusMarks}
+        stat={"Sekavuus: "}
         min={0}
-        max={10}
+        max={8}
       />
     </>
   );
 };
 
-export default SliderCope;
+export default SliderSekavuus;

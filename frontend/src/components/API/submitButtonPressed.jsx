@@ -11,7 +11,12 @@ const sendDataToBackend = async (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        value: { cope: statsToSend.cope, tila: statsToSend.tila },
+        value: {
+          cope: statsToSend.cope,
+          tila: statsToSend.tila,
+          bojoing: statsToSend.bojoing,
+          sekavuus: statsToSend.sekavuus,
+        },
       }),
     });
 

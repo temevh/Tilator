@@ -25,6 +25,8 @@ const SliderTila = ({ onSliderChange }) => {
         onChange={handleTilaChange}
         marks={tilaMarks}
         stat={"Tila: "}
+        min={0}
+        max={10}
       />
     </>
   );
