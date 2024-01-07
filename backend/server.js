@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
-const cors = require("cors"); // Import the cors middleware
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
@@ -14,13 +14,11 @@ const collectionName = "data";
 
 const client = new MongoClient(uri, { useUnifiedTopology: true });
 
-// Declare the collection variable at a higher scope
 let collection;
 
 // Middleware to parse JSON in the request body
 app.use(express.json());
 
-// Use the cors middleware
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -55,7 +53,6 @@ async function connect() {
       });
     });
 
-    // Start the server after connecting to MongoDB
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });
@@ -64,5 +61,4 @@ async function connect() {
   }
 }
 
-// Call the connect function to establish the MongoDB connection
 connect();
