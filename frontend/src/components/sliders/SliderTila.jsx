@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import SliderTemplate from "./SliderTemplate";
 
-const SliderTila = () => {
+const SliderTila = ({ onSliderChange }) => {
   const tilaMarks = [
     { value: 0, label: "0" },
     { value: 2, label: "2" },
@@ -10,9 +10,22 @@ const SliderTila = () => {
     { value: 8, label: "8" },
     { value: 10, label: "10" },
   ];
+
+  const [tilaValue, setTilaValue] = useState(5);
+
+  const handleTilaChange = (event, newValue) => {
+    setTilaValue(newValue);
+    onSliderChange(newValue);
+  };
+
   return (
     <>
-      <SliderTemplate marks={tilaMarks} stat={"Tila: "} />
+      <SliderTemplate
+        value={tilaValue}
+        onChange={handleTilaChange}
+        marks={tilaMarks}
+        stat={"Tila: "}
+      />
     </>
   );
 };

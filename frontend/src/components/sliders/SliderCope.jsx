@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import SliderTemplate from "./SliderTemplate";
 
-const SliderCope = () => {
+const SliderCope = ({ onSliderChange }) => {
   const copeMarks = [
     { value: 0, label: "0" },
     { value: 2, label: "2" },
@@ -10,9 +10,22 @@ const SliderCope = () => {
     { value: 8, label: "8" },
     { value: 10, label: "10" },
   ];
+
+  const [copeValue, setCopeValue] = useState(5);
+
+  const handleCopeChange = (event, newValue) => {
+    setCopeValue(newValue);
+    onSliderChange(newValue);
+  };
+
   return (
     <>
-      <SliderTemplate marks={copeMarks} stat={"Cope: "} />
+      <SliderTemplate
+        value={copeValue}
+        onChange={handleCopeChange}
+        marks={copeMarks}
+        stat={"Cope: "}
+      />
     </>
   );
 };

@@ -1,5 +1,5 @@
 const sendDataToBackend = async (props) => {
-  const sliderValue = 0;
+  const sliderValue = props.stats;
 
   console.log("CLICKED");
   try {

@@ -1,11 +1,25 @@
-import React from "react";
-import { Slider, Button } from "@mui/material";
+import React, { useState } from "react";
 import SliderTila from "./components/sliders/SliderTila";
+import Button from "@mui/material/Button";
 import SliderCope from "./components/sliders/SliderCope";
-import sendDataToBackend from "./components/API/submitButtonPressed";
 
-// Tila, cope, sekavuus, kenergy, turvotus
 function App() {
+  const [tilaValue, setTilaValue] = useState(5);
+  const [copeValue, setCopeValue] = useState(5);
+
+  const handleTilaChange = (newValue) => {
+    setTilaValue(newValue);
+  };
+
+  const handleCopeChange = (newValue) => {
+    setCopeValue(newValue);
+  };
+
+  const sendDataToBackend = () => {
+    console.log("Tila", tilaValue);
+    console.log("Cope", copeValue);
+  };
+
   return (
     <div
       style={{
@@ -17,8 +31,8 @@ function App() {
         backgroundColor: "black",
       }}
     >
-      <SliderTila />
-      <SliderCope />
+      <SliderTila onSliderChange={handleTilaChange} />
+      <SliderCope onSliderChange={handleCopeChange} />
       <Button
         variant="contained"
         color="primary"

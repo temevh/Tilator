@@ -1,27 +1,21 @@
 import React from "react";
 import { Slider } from "@mui/material";
 
-const SliderTemplate = (props) => {
-  const [sliderValue, setSliderValue] = React.useState(5);
-
-  const handleChange = (event, newValue) => {
-    setSliderValue(newValue);
-  };
-
+const SliderTemplate = ({ value, onChange, marks, stat }) => {
   return (
     <>
       <Slider
-        value={sliderValue}
-        onChange={handleChange}
+        value={value}
+        onChange={onChange}
         valueLabelDisplay="auto"
-        marks={props.marks}
+        marks={marks}
         min={0}
         max={10}
         style={sliderStyle}
       />
       <p style={{ color: "white" }}>
-        {props.stat}
-        {sliderValue}
+        {stat}
+        {value}
       </p>
     </>
   );
