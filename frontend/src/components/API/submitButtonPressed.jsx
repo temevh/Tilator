@@ -1,9 +1,7 @@
 const sendDataToBackend = async (props) => {
   const statsToSend = props.stats;
 
-  console.log("CLICKED");
-  console.log("Tila ", statsToSend.tila);
-  console.log("Cope ", statsToSend.cope);
+  console.log(statsToSend);
   try {
     const response = await fetch("http://localhost:5000/api/data", {
       method: "POST",
@@ -12,6 +10,7 @@ const sendDataToBackend = async (props) => {
       },
       body: JSON.stringify({
         value: {
+          person: statsToSend.person,
           cope: statsToSend.cope,
           tila: statsToSend.tila,
           bojoing: statsToSend.bojoing,

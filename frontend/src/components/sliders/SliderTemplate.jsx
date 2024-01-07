@@ -20,10 +20,8 @@ const SliderTemplate = ({ value, onChange, marks, stat, min, max }) => {
     </>
   );
 };
-
 const sliderStyle = {
   marginBottom: -4,
   width: 300,
 };
-
 export default SliderTemplate;
