@@ -50,6 +50,7 @@ function App() {
       cope: copeValue,
       bojoing: bojoingValue,
       sekavuus: sekavuusValue,
+      turvotus: turvotusValue,
     };
     sendDataToBackend({ stats: statsMap });
   };
@@ -69,6 +70,8 @@ function App() {
         select
         label="Henkilö"
         variant="filled"
+        value={selectedPerson}
+        onChange={(e) => changeSelectedPerson(e.target.value)}
         style={{
           width: 200,
           backgroundColor: "gray",

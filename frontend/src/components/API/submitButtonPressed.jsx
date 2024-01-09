@@ -15,6 +15,7 @@ const sendDataToBackend = async (props) => {
           tila: statsToSend.tila,
           bojoing: statsToSend.bojoing,
           sekavuus: statsToSend.sekavuus,
+          turvotus: statsToSend.turvotus,
         },
       }),
     });
