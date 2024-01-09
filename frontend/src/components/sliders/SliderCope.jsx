@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SliderTemplate from "./SliderTemplate";
+
 const SliderCope = ({ onSliderChange }) => {
   const copeMarks = [
     { value: 0, label: "0" },

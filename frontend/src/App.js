@@ -14,10 +14,10 @@ function App() {
   const [copeValue, setCopeValue] = useState(5);
   const [bojoingValue, setBojoingValue] = useState(2);
   const [sekavuusValue, setSekavuusValue] = useState(4);
-  const [turvotusValue, setTurvotusValue] = useState(4);
+  const [turvotusValue, setTurvotusValue] = useState(5);
   const [selectedPerson, setSelectedPerson] = useState("");
 
-  const people = ["Juho", "Aku", "Kapo", "Teemu", "Eekki"];
+  const people = ["Juppe15", "Big Stunna", "Nikokaporotta", "Teme", "Eekki"];
 
   const handleTilaChange = (newValue) => {
     setTilaValue(newValue);

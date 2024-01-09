@@ -11,7 +11,7 @@ const SliderSekavuus = ({ onSliderChange }) => {
     { value: 10, label: "10" },
   ];
 
-  const [SekavuusValue, setSekavuusValue] = useState(5);
+  const [SekavuusValue, setSekavuusValue] = useState(4);
 
   const handleSekavuusChange = (event, newValue) => {
     setSekavuusValue(newValue);

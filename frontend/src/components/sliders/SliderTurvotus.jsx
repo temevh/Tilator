@@ -11,7 +11,7 @@ const SliderTurvotus = ({ onSliderChange }) => {
     { value: 10, label: "10" },
   ];
 
-  const [turvotusValue, setTurvotusValue] = useState(2);
+  const [turvotusValue, setTurvotusValue] = useState(5);
 
   const handleTurvotusChange = (event, newValue) => {
     setTurvotusValue(newValue);
