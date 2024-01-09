@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, MenuItem, TextField, FormControl } from "@mui/material/";
+import { Button, MenuItem, TextField } from "@mui/material/";
 
 import SliderTila from "./components/sliders/SliderTila";
 import SliderCope from "./components/sliders/SliderCope";
@@ -36,7 +36,7 @@ function App() {
   };
 
   const handleTurvotusChange = (newValue) => {
-    setSekavuusValue(newValue);
+    setTurvotusValue(newValue);
   };
 
   const changeSelectedPerson = (newValue) => {
