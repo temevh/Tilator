@@ -38,9 +38,8 @@ async function connect() {
     collection = db.collection(collectionName);
 
     app.post("/api/data", (req, res) => {
-      const data = req.body.value; // Extract the 'value' property from the request body
+      const data = req.body.value;
 
-      // Insert the data into the collection
       collection.insertOne({ value: data }, (insertErr, result) => {
         if (insertErr) {
           console.error("Error inserting data into MongoDB:", insertErr);
@@ -51,6 +50,16 @@ async function connect() {
         console.log("Data inserted successfully:", result.ops[0]);
         res.status(200).send("Data inserted successfully");
       });
+    });
+
+    app.get("/api/data", async (req, res) => {
+      try {
+        const allData = await collection.find({}).toArray();
+        res.status(200).json(allData);
+      } catch (error) {
+        console.error("Error retrieving data");
+        res.status(500).send("Internal server error");
+      }
     });
 
     app.listen(PORT, () => {

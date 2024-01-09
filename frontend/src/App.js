@@ -8,6 +8,7 @@ import SliderSekavuus from "./components/sliders/SliderSekavuus";
 import SliderTurvotus from "./components/sliders/SliderTurvotus";
 
 import sendDataToBackend from "./components/API/submitButtonPressed";
+import getLeaderboardData from "./components/API/getLeaderboardData";
 
 function App() {
   const [tilaValue, setTilaValue] = useState(5);
@@ -41,6 +42,12 @@ function App() {
 
   const changeSelectedPerson = (newValue) => {
     setSelectedPerson(newValue);
+  };
+
+  let leaderboardData;
+
+  const fetchLeaderboard = () => {
+    getLeaderboardData();
   };
 
   const submitClicked = () => {
@@ -103,6 +110,8 @@ function App() {
       >
         Submit
       </Button>
+      <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
+      <p>{leaderboardData}</p>
     </div>
   );
 }
