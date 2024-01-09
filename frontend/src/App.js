@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Button, MenuItem, TextField } from "@mui/material/";
+import { Button, MenuItem, TextField, FormControl } from "@mui/material/";
 
 import SliderTila from "./components/sliders/SliderTila";
 import SliderCope from "./components/sliders/SliderCope";
 import SliderBojoing from "./components/sliders/SliderBojoing";
 import SliderSekavuus from "./components/sliders/SliderSekavuus";
+import SliderTurvotus from "./components/sliders/SliderTurvotus";
 
 import sendDataToBackend from "./components/API/submitButtonPressed";
 
@@ -13,6 +14,7 @@ function App() {
   const [copeValue, setCopeValue] = useState(5);
   const [bojoingValue, setBojoingValue] = useState(2);
   const [sekavuusValue, setSekavuusValue] = useState(4);
+  const [turvotusValue, setTurvotusValue] = useState(4);
   const [selectedPerson, setSelectedPerson] = useState("");
 
   const people = ["Juho", "Aku", "Kapo", "Teemu", "Eekki"];
@@ -30,6 +32,10 @@ function App() {
   };
 
   const handleSekavuusChange = (newValue) => {
+    setSekavuusValue(newValue);
+  };
+
+  const handleTurvotusChange = (newValue) => {
     setSekavuusValue(newValue);
   };
 
@@ -62,30 +68,30 @@ function App() {
       <TextField
         select
         label="Henkilö"
-        value={selectedPerson}
-        onChange={(e) => changeSelectedPerson(e.target.value)}
-        style={{ width: 300 }}
-        variant="standard"
-        color="primary"
-        InputProps={{
+        variant="filled"
+        style={{
+          width: 200,
+          backgroundColor: "gray",
+          border: "2px blue solid",
+          borderRadius: 4,
+        }}
+        SelectProps={{
           style: {
-            color: "white",
-            backgroundColor: "black",
-            borderColor: "primary",
+            color: "black",
           },
         }}
       >
         {people.map((person) => (
-          <MenuItem key={person} value={person}>
+          <MenuItem key={person} value={person} style={{ color: "black" }}>
             {person}
           </MenuItem>
         ))}
       </TextField>
-
       <SliderTila onSliderChange={handleTilaChange} />
       <SliderCope onSliderChange={handleCopeChange} />
       <SliderBojoing onSliderChange={handleBojoingChange} />
       <SliderSekavuus onSliderChange={handleSekavuusChange} />
+      <SliderTurvotus onSliderChange={handleTurvotusChange} />
       <Button
         variant="contained"
         color="primary"

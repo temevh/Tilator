@@ -3,5 +3,10 @@
     "dotenv": "^16.3.1",
     "mongoose": "^8.0.3",
     "nodemon": "^3.0.2"
+  },
+  "scripts": {
+    "dev": "npm run start-backend & npm run start-frontend",
+    "start-frontend": "cd frontend && npm start",
+    "start-backend": "nodemon .\\backend\\server.js"
   }
 }
