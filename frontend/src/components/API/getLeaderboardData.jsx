@@ -11,8 +11,7 @@ const getLeaderboardData = async () => {
       throw new Error("Failed to fetch data (leaderboardData)");
     }
 
-    console.log("Data sent successfully");
-    return await response.json(); // Assuming the response contains JSON data
+    return await response.json();
   } catch (error) {
     console.error("Error", error.message);
     throw error; // Re-throw the error for higher-level handling
