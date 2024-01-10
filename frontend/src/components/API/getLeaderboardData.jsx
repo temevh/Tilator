@@ -1,6 +1,6 @@
 const getLeaderboardData = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/data", {
+    const response = await fetch("http://localhost:5000/api/users/data", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -12,7 +12,7 @@ const getLeaderboardData = async () => {
     }
 
     console.log("Data sent successfully");
-    return response;
+    return await response.json(); // Assuming the response contains JSON data
   } catch (error) {
     console.error("Error", error.message);
     throw error; // Re-throw the error for higher-level handling

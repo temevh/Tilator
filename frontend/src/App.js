@@ -46,9 +46,8 @@ function App() {
 
   let leaderboardData;
 
-  const fetchLeaderboard = () => {
-    console.log("FLAG 1");
-    leaderboardData = getLeaderboardData();
+  const fetchLeaderboard = async () => {
+    leaderboardData = await getLeaderboardData();
     console.log(leaderboardData);
   };
 

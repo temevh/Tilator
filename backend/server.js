@@ -52,7 +52,7 @@ async function connect() {
       });
     });
 
-    app.get("/api/data", async (req, res) => {
+    app.get("/api/users/data", async (req, res) => {
       try {
         const allData = await collection.find({}).toArray();
         res.status(200).json(allData);
