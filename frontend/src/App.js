@@ -47,7 +47,9 @@ function App() {
   let leaderboardData;
 
   const fetchLeaderboard = () => {
-    getLeaderboardData();
+    console.log("FLAG 1");
+    leaderboardData = getLeaderboardData();
+    console.log(leaderboardData);
   };
 
   const submitClicked = () => {
