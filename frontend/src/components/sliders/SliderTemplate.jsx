@@ -8,7 +8,6 @@ const SliderTemplate = ({ value, onChange, marks, stat, min, max }) => {
         value={value}
         onChange={onChange}
         valueLabelDisplay="auto"
-        marks={marks}
         min={min}
         max={max}
         style={sliderStyle}
