@@ -1,6 +1,6 @@
 import getLeaderboardData from "../API/getLeaderboardData";
-import { Button, colors } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
+import { useState } from "react";
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -27,9 +27,9 @@ const Leaderboard = () => {
         <p style={{ color: "white" }}>No people</p>
       ) : (
         leaderboardData.map((item, index) => (
-          <div key={index}>
+          <div key={index} style={{ backgroundColor: "white" }}>
             <p
-              style={{ color: "white" }}
+              style={{ color: "black" }}
             >{`Person: ${item.person}, Cope: ${item.cope}, Tila: ${item.tila}, Bojoing: ${item.bojoing}, Sekavuus: ${item.sekavuus}, Turvotus: ${item.turvotus}`}</p>
           </div>
         ))
