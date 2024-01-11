@@ -22,16 +22,20 @@ const Leaderboard = () => {
   };
 
   return (
-    <>
+    <div>
+      {leaderboardData.length === 0 ? (
+        <p style={{ color: "white" }}>No people</p>
+      ) : (
+        leaderboardData.map((item, index) => (
+          <div key={index}>
+            <p
+              style={{ color: "white" }}
+            >{`Person: ${item.person}, Cope: ${item.cope}, Tila: ${item.tila}, Bojoing: ${item.bojoing}, Sekavuus: ${item.sekavuus}, Turvotus: ${item.turvotus}`}</p>
+          </div>
+        ))
+      )}
       <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
-      <div>
-        {leaderboardData.length === 0 ? (
-          <p style={{ color: "white" }}>No people</p>
-        ) : (
-          <p>Yes people!</p>
-        )}
-      </div>
-    </>
+    </div>
   );
 };
 
