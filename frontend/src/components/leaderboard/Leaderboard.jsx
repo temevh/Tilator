@@ -1,28 +1,36 @@
 import getLeaderboardData from "../API/getLeaderboardData";
-import { Button } from "@mui/material";
-import { useEffect } from "react";
+import { Button, colors } from "@mui/material";
+import { useEffect, useState } from "react";
 
 const Leaderboard = () => {
-  let leaderboardData;
+  const [leaderboardData, setLeaderboardData] = useState([]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log("Fetched leaderboard data");
     fetchLeaderboard();
-  });
+  });*/
 
   const fetchLeaderboard = async () => {
-    leaderboardData = await getLeaderboardData();
-    console.log(leaderboardData);
+    try {
+      const data = await getLeaderboardData();
+      console.log(data);
 
-    refreshLeaderboard();
+      setLeaderboardData(data.map((item) => item.value));
+    } catch (error) {
+      console.error("Error fetching leaderboar data:", error);
+    }
   };
-
-  function refreshLeaderboard() {}
 
   return (
     <>
-      <Button onClick={fetchLeaderboard}>Leaderboard get</Button>;
-      <p>{leaderboardData}</p>
+      <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
+      <div>
+        {leaderboardData.length === 0 ? (
+          <p style={{ color: "white" }}>No people</p>
+        ) : (
+          <p>Yes people!</p>
+        )}
+      </div>
     </>
   );
 };
