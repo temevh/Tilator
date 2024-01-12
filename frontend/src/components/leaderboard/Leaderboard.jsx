@@ -5,11 +5,6 @@ import { useState } from "react";
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
 
-  /*useEffect(() => {
-    console.log("Fetched leaderboard data");
-    fetchLeaderboard();
-  });*/
-
   const fetchLeaderboard = async () => {
     try {
       const data = await getLeaderboardData();

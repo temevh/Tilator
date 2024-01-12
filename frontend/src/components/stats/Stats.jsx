@@ -62,8 +62,8 @@ const Stats = () => {
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "black",
-        padding: 20, // Add or adjust padding as needed
-        height: "85.1vh", // Uncomment and adjust if needed
+        padding: 20,
+        height: "85.1vh",
       }}
     >
       <TextField
