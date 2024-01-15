@@ -11,7 +11,7 @@ function App() {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "black",
+        backgroundColor: "white",
         paddingTop: 100,
       }}
     >

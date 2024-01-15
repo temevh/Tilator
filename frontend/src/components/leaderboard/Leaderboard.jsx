@@ -1,36 +1,32 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import getLeaderboardData from "../API/getLeaderboardData";
+import MostTemplate from "./MostTemplate";
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const [mostCope, setMostCope] = useState("");
 
   const fetchLeaderboard = async () => {
     try {
       const data = await getLeaderboardData();
-      console.log(data);
+      const transformedData = data.map((item) => ({
+        name: item.value.person,
+        stats: {
+          cope: item.value.cope,
+          tila: item.value.tila,
+          bojoing: item.value.bojoing,
+          sekavuus: item.value.sekavuus,
+          turvotus: item.value.turvotus,
+        },
+      }));
 
-      setLeaderboardData(data);
+      console.log(transformedData);
+
+      setLeaderboardData(transformedData);
     } catch (error) {
       console.error("Error fetching leaderboard data:", error);
     }
   };
-
-  const calculateRankings = () => {
-    const sortedData = [...leaderboardData].sort((a, b) => b.cope - a.cope);
-    const rankings = {};
-
-    sortedData.forEach((item, index) => {
-      console.log(
-        index > 0 ? rankings[sortedData[index - 1].value.person] : null
-      );
-    });
-
-    return rankings;
-  };
-
-  const rankings = calculateRankings();
 
   return (
     <div>
@@ -38,18 +34,24 @@ const Leaderboard = () => {
         <p style={{ color: "white" }}>No people</p>
       ) : (
         <div>
-          <h2 style={{ color: "white" }}>Leaderboard</h2>
-          <ol>
-            {leaderboardData.map((item, index) => (
-              <li key={index} style={{ color: "white" }}>
-                <strong style={{ color: "white" }}>{item.person}</strong> -
-                Cope: {item.cope} - Rank: {rankings[item.person]}
-              </li>
-            ))}
-          </ol>
+          <p>Yes people</p>
         </div>
       )}
       <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
+      <MostTemplate
+        name="Tila"
+        stats={leaderboardData.map(({ name, stats }) => ({
+          person: name,
+          cope: stats.tila,
+        }))}
+      />
+      <MostTemplate
+        name="Cope"
+        stats={leaderboardData.map(({ name, stats }) => ({
+          person: name,
+          cope: stats.cope,
+        }))}
+      />
     </div>
   );
 };
