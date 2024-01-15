@@ -30,13 +30,6 @@ const Leaderboard = () => {
 
   return (
     <div>
-      {leaderboardData.length === 0 ? (
-        <p style={{ color: "white" }}>No people</p>
-      ) : (
-        <div>
-          <p>Yes people</p>
-        </div>
-      )}
       <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
       <MostTemplate
         name="Tila"
@@ -50,6 +43,20 @@ const Leaderboard = () => {
         stats={leaderboardData.map(({ name, stats }) => ({
           person: name,
           cope: stats.cope,
+        }))}
+      />
+      <MostTemplate
+        name="Sekavuus"
+        stats={leaderboardData.map(({ name, stats }) => ({
+          person: name,
+          cope: stats.sekavuus,
+        }))}
+      />
+      <MostTemplate
+        name="Turvotus"
+        stats={leaderboardData.map(({ name, stats }) => ({
+          person: name,
+          cope: stats.turvotus,
         }))}
       />
     </div>
