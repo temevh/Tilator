@@ -6,9 +6,10 @@ const MostTemplate = ({ name, stats }) => {
       style={{
         backgroundColor: "gray",
         borderRadius: 6,
-        marginLeft: -10,
-        marginRight: -10,
-        paddingBottom: 5,
+        marginLeft: 10,
+        marginRight: 10,
+        paddingLeft: 10,
+        width: 200,
       }}
     >
       <p style={{ color: "white", fontSize: 20 }}>{name} top 3</p>

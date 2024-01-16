@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import getLeaderboardData from "../API/getLeaderboardData";
 import MostTemplate from "./MostTemplate";
+import styled from "@emotion/styled";
+
+const LeaderboardContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -31,34 +37,36 @@ const Leaderboard = () => {
   return (
     <div>
       <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
-      <MostTemplate
-        name="Tila"
-        stats={leaderboardData.map(({ name, stats }) => ({
-          person: name,
-          cope: stats.tila,
-        }))}
-      />
-      <MostTemplate
-        name="Cope"
-        stats={leaderboardData.map(({ name, stats }) => ({
-          person: name,
-          cope: stats.cope,
-        }))}
-      />
-      <MostTemplate
-        name="Sekavuus"
-        stats={leaderboardData.map(({ name, stats }) => ({
-          person: name,
-          cope: stats.sekavuus,
-        }))}
-      />
-      <MostTemplate
-        name="Turvotus"
-        stats={leaderboardData.map(({ name, stats }) => ({
-          person: name,
-          cope: stats.turvotus,
-        }))}
-      />
+      <LeaderboardContainer>
+        <MostTemplate
+          name="Tila"
+          stats={leaderboardData.map(({ name, stats }) => ({
+            person: name,
+            cope: stats.tila,
+          }))}
+        />
+        <MostTemplate
+          name="Cope"
+          stats={leaderboardData.map(({ name, stats }) => ({
+            person: name,
+            cope: stats.cope,
+          }))}
+        />
+        <MostTemplate
+          name="Sekavuus"
+          stats={leaderboardData.map(({ name, stats }) => ({
+            person: name,
+            cope: stats.sekavuus,
+          }))}
+        />
+        <MostTemplate
+          name="Turvotus"
+          stats={leaderboardData.map(({ name, stats }) => ({
+            person: name,
+            cope: stats.turvotus,
+          }))}
+        />
+      </LeaderboardContainer>
     </div>
   );
 };

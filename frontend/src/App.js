@@ -15,9 +15,10 @@ function App() {
         paddingTop: 100,
       }}
     >
-      <Stats />
-      <div style={{ paddingLeft: 100 }}></div>
-      <Leaderboard />
+      <div>
+        <Leaderboard />
+        <Stats />
+      </div>
     </div>
   );
 }
