@@ -1,5 +1,4 @@
 import React from "react";
-
 import Leaderboard from "./components/leaderboard/Leaderboard";
 import Stats from "./components/stats/Stats";
 
@@ -13,6 +12,7 @@ function App() {
         justifyContent: "center",
         backgroundColor: "black",
         paddingTop: 100,
+        overflow: "hidden",
       }}
     >
       <div>

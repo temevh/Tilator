@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import getLeaderboardData from "../API/getLeaderboardData";
 import MostTemplate from "./MostTemplate";
@@ -11,6 +11,10 @@ const LeaderboardContainer = styled.div`
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
+
+  useEffect(() => {
+    fetchLeaderboard();
+  });
 
   const fetchLeaderboard = async () => {
     try {

@@ -63,7 +63,7 @@ const Stats = () => {
         alignItems: "center",
         backgroundColor: "black",
         padding: 20,
-        height: "85.1vh",
+        height: "100vh",
       }}
     >
       <TextField
