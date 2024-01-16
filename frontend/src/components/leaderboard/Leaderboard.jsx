@@ -32,8 +32,15 @@ const Leaderboard = () => {
   };
 
   return (
-    <div>
-      <Button onClick={fetchLeaderboard}>Refresh leaderboard</Button>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <Button
+        onClick={fetchLeaderboard}
+        style={{ fontWeight: "bold", fontSize: 18, color: "white" }}
+      >
+        Refresh leaderboard
+      </Button>
       <LeaderboardContainer>
         <MostTemplate
           name="Tila"

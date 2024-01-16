@@ -98,7 +98,7 @@ const Stats = () => {
       <Button
         variant="contained"
         color="primary"
-        style={{ marginTop: 50 }}
+        style={{ marginTop: 10 }}
         onClick={submitClicked}
       >
         Submit
