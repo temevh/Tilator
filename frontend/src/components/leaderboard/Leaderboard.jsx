@@ -50,6 +50,13 @@ const Leaderboard = () => {
           }))}
         />
         <MostTemplate
+          name="Hölmöys"
+          stats={leaderboardData.map(({ name, stats }) => ({
+            person: name,
+            cope: stats.bojoing,
+          }))}
+        />
+        <MostTemplate
           name="Sekavuus"
           stats={leaderboardData.map(({ name, stats }) => ({
             person: name,

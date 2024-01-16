@@ -23,7 +23,7 @@ const SliderBojoing = ({ onSliderChange }) => {
         value={bojoingValue}
         onChange={handleBojoingChange}
         marks={BojoingMarks}
-        stat={"Bojoing: "}
+        stat={"Hölmöys: "}
         min={0}
         max={4}
       />
