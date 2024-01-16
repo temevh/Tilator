@@ -12,10 +12,12 @@ const MostTemplate = ({ name, stats }) => {
         width: 200,
       }}
     >
-      <p style={{ color: "white", fontSize: 20 }}>{name} top 3</p>
+      <p style={{ color: "black", fontSize: 20 }}>{name} top 3</p>
       {sortedStats.slice(0, 3).map((stat, index) => (
         <div key={index}>
-          <p style={{ color: "white" }}>{`${stat.person} : ${stat.cope}`}</p>
+          <p style={{ color: "white" }}>{`${index + 1}. ${stat.person} : ${
+            stat.cope
+          }`}</p>
         </div>
       ))}
     </div>

@@ -36,7 +36,7 @@ const Leaderboard = () => {
 
   return (
     <div>
-      <Button onClick={fetchLeaderboard}>Leaderboard get</Button>
+      <Button onClick={fetchLeaderboard}>Refresh leaderboard</Button>
       <LeaderboardContainer>
         <MostTemplate
           name="Tila"
