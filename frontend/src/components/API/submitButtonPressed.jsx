@@ -1,7 +1,6 @@
 const sendDataToBackend = async (props) => {
   const statsToSend = props.stats;
 
-  console.log(statsToSend);
   try {
     const response = await fetch("http://localhost:5000/api/data", {
       method: "POST",
@@ -23,8 +22,6 @@ const sendDataToBackend = async (props) => {
     if (!response.ok) {
       throw new Error("Failed to send data to the server");
     }
-
-    console.log("Data sent successfully");
   } catch (error) {
     console.error("Error:", error.message);
   }

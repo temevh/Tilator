@@ -25,9 +25,6 @@ const Leaderboard = () => {
           turvotus: item.value.turvotus,
         },
       }));
-
-      console.log(transformedData);
-
       setLeaderboardData(transformedData);
     } catch (error) {
       console.error("Error fetching leaderboard data:", error);
