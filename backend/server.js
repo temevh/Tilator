@@ -62,6 +62,17 @@ async function connect() {
       }
     });
 
+    app.get("/api/users/getPeople", async (req, res) => {
+      try {
+        const peopleCollection = db.collection("people");
+        const people = await peopleCollection.find({}).toArray();
+        res.status(200).json(people);
+      } catch (error) {
+        console.error("Error retrieving people");
+        res.status(500).send("Internal server error");
+      }
+    });
+
     app.listen(PORT, () => {
       console.log(`Server is running on http://localhost:${PORT}`);
     });

@@ -8,6 +8,7 @@ import SliderSekavuus from "../sliders/SliderSekavuus";
 import SliderTurvotus from "../sliders/SliderTurvotus";
 
 import sendDataToBackend from "../API/submitButtonPressed";
+import getPeople from "../API/getPeople";
 
 const Stats = () => {
   const [tilaValue, setTilaValue] = useState(5);
@@ -53,6 +54,11 @@ const Stats = () => {
       turvotus: turvotusValue,
     };
     sendDataToBackend({ stats: statsMap });
+  };
+
+  const peopleClicked = async () => {
+    let people = await getPeople();
+    console.log(people);
   };
 
   return (
@@ -102,6 +108,14 @@ const Stats = () => {
         onClick={submitClicked}
       >
         Submit
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        style={{ marginTop: 10 }}
+        onClick={peopleClicked}
+      >
+        Get people
       </Button>
     </div>
   );
