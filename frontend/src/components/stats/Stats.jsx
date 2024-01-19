@@ -18,6 +18,18 @@ const Stats = () => {
   const [turvotusValue, setTurvotusValue] = useState(5);
   const [selectedPerson, setSelectedPerson] = useState("");
 
+  let namesArray = [];
+
+  async function getPeople() {
+    let people = await getPeople();
+    namesArray = people.map((obj) => obj.name);
+  }
+
+  useEffect(() => {
+    getPeople();
+    console.log("FETCHED PEOPLE", namesArray);
+  });
+
   const people = ["Juppe15", "Big Stunna", "Nikokaporotta", "Teme", "Eekki"];
 
   const handleTilaChange = (newValue) => {
@@ -57,12 +69,7 @@ const Stats = () => {
   };
 
   const peopleClicked = async () => {
-    let people = await getPeople();
-    console.log(people);
-
-    const namesArray = people.map((obj) => obj.name);
-
-    //console.log(namesArray);
+    console.log(namesArray);
   };
 
   return (
@@ -94,7 +101,7 @@ const Stats = () => {
           },
         }}
       >
-        {people.map((person) => (
+        {namesArray.map((person) => (
           <MenuItem key={person} value={person} style={{ color: "black" }}>
             {person}
           </MenuItem>
