@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, MenuItem, TextField } from "@mui/material/";
 
 import SliderTila from "../sliders/SliderTila";
@@ -59,6 +59,10 @@ const Stats = () => {
   const peopleClicked = async () => {
     let people = await getPeople();
     console.log(people);
+
+    const namesArray = people.map((obj) => obj.name);
+
+    //console.log(namesArray);
   };
 
   return (
