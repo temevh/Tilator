@@ -72,8 +72,6 @@ const Stats = () => {
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "black",
-        padding: 20,
-        height: "100vh",
       }}
     >
       <TextField
@@ -85,8 +83,9 @@ const Stats = () => {
         style={{
           width: 200,
           backgroundColor: "gray",
-          border: "2px blue solid",
           borderRadius: 4,
+          marginTop: 30,
+          marginBottom: 10,
         }}
         SelectProps={{
           style: {

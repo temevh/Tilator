@@ -52,6 +52,22 @@ async function connect() {
       });
     });
 
+    app.post("api/users", (req, res) => {
+      const data = req.body.value;
+
+      const peopleCollection = db.collection("people");
+
+      peopleCollection.insertOne({ value: data }, (insertErr, result) => {
+        if (insertErr) {
+          console.error("Error inserting data into MongoDB:", insertErr);
+          res.status(500).send("Internal Server Error");
+          return;
+        }
+        console.log("Data inserted successfully:", result.ops[0]);
+        res.status(200).send("Data inserted successfully");
+      });
+    });
+
     app.get("/api/users/data", async (req, res) => {
       try {
         const allData = await collection.find({}).toArray();

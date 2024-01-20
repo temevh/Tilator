@@ -1,6 +1,7 @@
 import React from "react";
 import Leaderboard from "./components/leaderboard/Leaderboard";
 import Stats from "./components/stats/Stats";
+import AddPerson from "./components/addperson/AddPerson";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <div>
         <Leaderboard />
         <Stats />
+        <AddPerson />
       </div>
     </div>
   );
