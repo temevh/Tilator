@@ -17,18 +17,17 @@ const Stats = () => {
   const [sekavuusValue, setSekavuusValue] = useState(4);
   const [turvotusValue, setTurvotusValue] = useState(5);
   const [selectedPerson, setSelectedPerson] = useState("");
-
-  let namesArray = [];
-
-  async function getPeople() {
-    let people = await getPeople();
-    namesArray = people.map((obj) => obj.name);
-  }
+  const [namesArray, setNamesArray] = useState([]);
 
   useEffect(() => {
-    getPeople();
+    async function fetchPeople() {
+      let people = await getPeople();
+      setNamesArray(people.map((obj) => obj.name));
+    }
+
+    fetchPeople();
     console.log("FETCHED PEOPLE", namesArray);
-  });
+  }, []);
 
   const people = ["Juppe15", "Big Stunna", "Nikokaporotta", "Teme", "Eekki"];
 
