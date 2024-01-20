@@ -29,8 +29,6 @@ const Stats = () => {
     console.log("FETCHED PEOPLE", namesArray);
   }, []);
 
-  const people = ["Juppe15", "Big Stunna", "Nikokaporotta", "Teme", "Eekki"];
-
   const handleTilaChange = (newValue) => {
     setTilaValue(newValue);
   };
@@ -65,10 +63,6 @@ const Stats = () => {
       turvotus: turvotusValue,
     };
     sendDataToBackend({ stats: statsMap });
-  };
-
-  const peopleClicked = async () => {
-    console.log(namesArray);
   };
 
   return (
@@ -118,14 +112,6 @@ const Stats = () => {
         onClick={submitClicked}
       >
         Submit
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        style={{ marginTop: 10 }}
-        onClick={peopleClicked}
-      >
-        Get people
       </Button>
     </div>
   );
