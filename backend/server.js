@@ -52,7 +52,7 @@ async function connect() {
       });
     });
 
-    app.post("api/users", (req, res) => {
+    app.post("/api/users", (req, res) => {
       const data = req.body.value;
 
       const peopleCollection = db.collection("people");
