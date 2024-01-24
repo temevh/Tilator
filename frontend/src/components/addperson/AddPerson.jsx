@@ -1,5 +1,5 @@
 import { Button, TextField } from "@mui/material";
-import addPerson from "../API/addPerson";
+import addPersonToDb from "../API/addPersonToDb";
 import { useState } from "react";
 
 const AddPerson = () => {
@@ -8,7 +8,7 @@ const AddPerson = () => {
   const addPersonClicked = () => {
     console.log("click");
     console.log(name);
-    addPerson({ name: name });
+    addPersonToDb({ name: name });
   };
 
   const updateName = (event) => {
