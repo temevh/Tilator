@@ -23,10 +23,10 @@ const Stats = () => {
     async function fetchPeople() {
       let people = await getPeople();
       setNamesArray(people.map((obj) => obj.name));
+      console.log("fetched people", namesArray);
     }
 
     fetchPeople();
-    console.log("FETCHED PEOPLE", namesArray);
   }, []);
 
   const handleTilaChange = (newValue) => {
