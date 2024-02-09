@@ -9,7 +9,7 @@ const addPersonToDb = async (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        value: person,
+        name: person,
       }),
     });
 

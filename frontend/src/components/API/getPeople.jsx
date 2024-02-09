@@ -6,7 +6,9 @@ const getPeople = async () => {
         "Content-Type": "application/json",
       },
     });
-    return await response.json();
+    const data = await response.json();
+    console.log(data);
+    return data;
   } catch (error) {
     console.log("Error", error.message);
     throw error;

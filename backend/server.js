@@ -52,11 +52,10 @@ async function connect() {
     });
 
     app.post("/api/users", (req, res) => {
-      const data = req.body.value;
-
+      const { name } = req.body; // Assuming you're sending 'name' in the request body
       const peopleCollection = db.collection("people");
 
-      peopleCollection.insertOne({ value: data }, (insertErr, result) => {
+      peopleCollection.insertOne({ name }, (insertErr, result) => {
         if (insertErr) {
           console.error("Error inserting data into MongoDB:", insertErr);
           res.status(500).send("Internal Server Error");
