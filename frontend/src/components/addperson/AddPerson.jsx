@@ -9,6 +9,7 @@ const AddPerson = () => {
     console.log("click");
     console.log(name);
     addPersonToDb({ name: name });
+    setName("");
   };
 
   const updateName = (event) => {
