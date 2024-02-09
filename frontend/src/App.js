@@ -12,7 +12,6 @@ function App() {
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "black",
-        paddingTop: 100,
         overflow: "hidden",
       }}
     >

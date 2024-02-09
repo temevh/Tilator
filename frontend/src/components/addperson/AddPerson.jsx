@@ -23,14 +23,15 @@ const AddPerson = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "white",
+        backgroundColor: "black",
+        paddingTop: 30,
       }}
     >
       <TextField
-        style={{ color: "white" }}
+        style={{ color: "white", backgroundColor: "white" }} // Set background color to white
         onChange={updateName}
         value={name}
-      ></TextField>
+      />
       <Button
         variant="contained"
         color="primary"

@@ -52,7 +52,7 @@ async function connect() {
     });
 
     app.post("/api/users", (req, res) => {
-      const { name } = req.body; // Assuming you're sending 'name' in the request body
+      const { name } = req.body;
       const peopleCollection = db.collection("people");
 
       peopleCollection.insertOne({ name }, (insertErr, result) => {
