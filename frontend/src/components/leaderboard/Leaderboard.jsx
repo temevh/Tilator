@@ -19,16 +19,28 @@ const Leaderboard = () => {
   const fetchLeaderboard = async () => {
     try {
       const data = await getLeaderboardData();
-      const transformedData = data.map((item) => ({
-        name: item.value.person,
-        stats: {
-          cope: item.value.cope,
-          tila: item.value.tila,
-          bojoing: item.value.bojoing,
-          sekavuus: item.value.sekavuus,
-          turvotus: item.value.turvotus,
-        },
-      }));
+      const uniqueNames = {}; // Object to store unique names
+      const transformedData = [];
+
+      data.forEach((item) => {
+        const name = item.value.person;
+
+        // Check if name is already processed
+        if (!uniqueNames[name]) {
+          uniqueNames[name] = true; // Mark name as processed
+          transformedData.push({
+            name,
+            stats: {
+              cope: item.value.cope,
+              tila: item.value.tila,
+              bojoing: item.value.bojoing,
+              sekavuus: item.value.sekavuus,
+              turvotus: item.value.turvotus,
+            },
+          });
+        }
+      });
+
       setLeaderboardData(transformedData);
     } catch (error) {
       console.error("Error fetching leaderboard data:", error);
