@@ -7,7 +7,7 @@ const AddPerson = () => {
 
   const addPersonClicked = () => {
     console.log("click");
-    console.log(name);
+    alert("Person added");
     addPersonToDb({ name: name });
     setName("");
   };

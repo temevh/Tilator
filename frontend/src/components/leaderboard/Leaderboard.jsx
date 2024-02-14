@@ -19,15 +19,14 @@ const Leaderboard = () => {
   const fetchLeaderboard = async () => {
     try {
       const data = await getLeaderboardData();
-      const uniqueNames = {}; // Object to store unique names
+      const uniqueNames = {};
       const transformedData = [];
 
       data.forEach((item) => {
         const name = item.value.person;
 
-        // Check if name is already processed
         if (!uniqueNames[name]) {
-          uniqueNames[name] = true; // Mark name as processed
+          uniqueNames[name] = true;
           transformedData.push({
             name,
             stats: {
