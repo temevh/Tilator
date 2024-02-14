@@ -82,7 +82,7 @@ const Stats = () => {
         onChange={(e) => changeSelectedPerson(e.target.value)}
         style={{
           width: 200,
-          backgroundColor: "gray",
+          backgroundColor: "white",
           borderRadius: 4,
           marginTop: 30,
           marginBottom: 10,

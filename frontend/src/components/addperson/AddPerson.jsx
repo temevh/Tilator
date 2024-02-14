@@ -28,7 +28,7 @@ const AddPerson = () => {
       }}
     >
       <TextField
-        style={{ color: "white", backgroundColor: "white" }} // Set background color to white
+        style={{ color: "white", backgroundColor: "white", borderRadius: 8 }} // Set background color to white
         onChange={updateName}
         value={name}
       />
